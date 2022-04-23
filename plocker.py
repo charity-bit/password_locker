@@ -56,6 +56,15 @@ class Credentials:
         
     def save_creds(self):
         Credentials.creds_list.append(self)
+        
+    '''
+    update credential
+    '''
+    def update_cred(self,username,password):
+        self.username = username
+        self.password = password
+        return self
+        
       
     '''
     method to check if user exists in users
