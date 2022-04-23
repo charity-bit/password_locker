@@ -27,6 +27,18 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.users),1)
         
+    def tearDown(self):
+        '''
+         clean users array after every test
+        '''
+        User.users = []
+        
+    def test_remove_user(self):
+        self.new_user.save_user()
+        test_user = User("nyanchera","12345")
+        
+        
+        
         
         
         
