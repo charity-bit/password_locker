@@ -1,3 +1,6 @@
+from random import randint
+
+
 class User:
     
     '''
@@ -81,7 +84,16 @@ class Credentials:
             if cred.site_name == site_name:
                 return cred
         
-    
+    '''
+    generate random password method
+    '''
+    def generate_pasword(ln):
+        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789*!#$@?&/=|"
+        pwd = ""
+        for i in range(len):
+            pwd += chars[randint(0, len(chars) - 1)] #generate random int from 0 to last index of chars
+            
+        return pwd
         
         
     
