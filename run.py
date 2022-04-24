@@ -145,6 +145,22 @@ def main():
                                 print("Invalid Choice.Please use short codes")
                         s_creds(create_creds(site_name,user_name,pass_choice))
                         
+                            
+                    if shortcode == 'fc':
+                        print("Enter the name of the account you want to find")
+                        account_name = input("Account Name:").strip()
+                        
+                        if search_creds(account_name):
+                            account = search_creds(account_name)
+                            print("\t\t\t\t\tAccount\t\tUsername\t\tPassword")
+                            print("\t\t\t\t\t"+"_"*50)
+                            print(f"\t\t\t\t\t{account.site_name}\t\t{account.username}\t\t{account.password}")
+                            
+                            
+                        else:
+                            print("Account not found")
+                                
+                    
                     if shortcode == 'dc':
                         if disp_creds():
                             for cred in disp_creds():
@@ -154,10 +170,7 @@ def main():
                                 
                         else:
                             print("There are no saved credentials available")
-                        
-                                
-                    
-                                
+                              
                         
                     
                         
