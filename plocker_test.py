@@ -1,5 +1,5 @@
 import unittest
-from plocker import User
+from plocker import Credentials, User
 
 class TestUser(unittest.TestCase):
     
@@ -40,7 +40,25 @@ class TestUser(unittest.TestCase):
         self.new_user.remove_user()
         self.assertEqual(len(User.users),1)
     
-  
+class TestCredential(unittest.TestCase):
+    '''
+     Unitest for the credential class
+    '''
+    
+    def setUp(self):
+        '''
+        set up Method to create a new cred before every test
+        '''
+        
+        new_cred = Credentials("twitter","Ccnyanchera","qwertyip")
+    def tearDown(self):
+        '''
+        clear the creds lists after every test
+        '''
+        Credentials.creds_list = []
+    
+    def test_save_creds(self):
+        self.new_creds.save_creds()
         
         
         

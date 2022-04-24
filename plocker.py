@@ -8,22 +8,23 @@ class User:
     '''
     users = []
     
-    '''
-    define properties for our User objects
-    '''
+    
     def __init__(self,username,password):
+        '''
+        define properties for our User objects
+        '''
         self.username = username
         self.password = password
      
      
-    '''
-    instance method user to save the user
-    '''   
+     
     
-    '''
-    save user in user_list
-    '''
+   
     def save_user(self):
+        '''
+        instance method user to save the user
+        save user in user_list
+        '''  
         User.users.append(self)
       
       
@@ -35,6 +36,10 @@ class User:
         
     
 class Credentials:
+    '''
+    Class that generates new instances of Credentials
+    '''
+    
     
     
     '''
@@ -42,42 +47,46 @@ class Credentials:
     '''
     creds_list = []
     
-    '''
-    Class that generates new instances of Credentials
-    '''
     
-    '''
-    define properties for our Credential objects
-    '''
+    
     def __init__(self,site_name,username,password):
+        '''
+        define properties for our Credential objects
+        '''
         self.site_name = site_name
         self.username = username
         self.password = password
         
     def save_creds(self):
+        '''
+        method to save a credential
+        '''
         Credentials.creds_list.append(self)
         
-    '''
-    method to remove credential
     
-    '''
     
     def remove_cred(self):
+        '''
+        method to remove credential
+    
+        '''
         Credentials.creds_list.remove(self) 
     
         
-    '''
-    update credential
-    '''
+   
     def update_cred(self):
-        return self
+         '''
+         update credential
+         '''
+         return self
         
       
-    '''
-    method to check if user exists in users
-    '''  
+    
     @classmethod
     def aunthenticate(cls,username,password):
+        '''
+        method to check if user exists in users
+        '''  
         active_user = ""
         for user in User.users:
             if (user.username == username and user.password == password):
@@ -85,26 +94,29 @@ class Credentials:
                 
         return active_user
     
-    '''
-    return a list of all credentials 
-    '''
+    
     @classmethod
     def display_creds(cls):
+        '''
+        return a list of all credentials 
+        '''
         return cls.creds_list
     
-    '''
-    search for credential by name
-    '''
+   
     @classmethod
     def search_cred(cls,site_name):
+        '''
+        search for credential by name
+        '''
         for cred in cls.creds_list:
             if cred.site_name == site_name:
                 return cred
         
-    '''
-    generate random password method
-    '''
+    
     def generate_password(ln):
+        '''
+        generate random password method
+        '''
         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890=?!#/@~$*"
         password = " "
         for i in range(ln):
