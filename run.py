@@ -44,13 +44,13 @@ def disp_creds():
 def main():
     print('\n')
     print('\n')
-    print("-"*50)
-    print("-"*50)
+    print("\t-"*50)
+    print("\t\t\t\t"+"-"*50)
     print("\n")
-    print("\t\tWelcome")
+    print("\t\t\t\t\t\t\tWelcome")
     print("\n")
-    print("-"*50)
-    print("-"*50)
+    print("\t\t\t\t"+"-"*50)
+    print("\t-"*50)
     
     while True:
         '''
@@ -61,19 +61,19 @@ def main():
          
         '''
         print("\n")
-        print("*"*20)        
-        print("*"*20)
+        print("\t\t\t\t"+"*"*50)        
+        print("\t\t\t\t"+"*"*50)
         print("\n")
-        print("\tUse These short codes to Navigate:\n\tca - to login\n\tli - to login\n\tex - to exit")
+        print("\t\t\t\t\tUse These short codes to Navigate:\n\t\t\t\t\tca - to login\n\t\t\t\t\tli - to login\n\t\t\t\t\tex - to exit")
         print("\n")
-        print("*"*20)
-        print("*"*20)
+        print("\t\t\t\t"+"*"*50)
+        print("\t\t\t\t"+"*"*50)
         print("\n")
-        shortcode = input("Enter the shortcode:").lower().strip()
+        shortcode = input("\t\t\t\t\tEnter the shortcode:\n").lower().strip()
         
         if shortcode == 'ca':
-            print("Enter Your Details")
-            print("*"*20)
+            print("\t\t\t\t\tEnter Your Details")
+            print("\t\t\t\t"+"*"*50)
             username = input("Enter your Username")
             
             while True:
@@ -96,6 +96,9 @@ def main():
                     break
                 else:
                     print("Invalid choice.please use the short codes provided")
+                
+            
+            
             
                 
         
