@@ -5,40 +5,70 @@ import pyperclip as pyc
 
 
 def create_user(username,password):
+    '''
+    Method to create a new user
+    '''
     new_user = User(username,password)
     return new_user
 
 def s_user(user):
+    '''
+    method to save a newly created user
+    '''
     user.save_user()
     
 def r_user(user):
+    '''
+    method to create a user
+    '''
     user.remove_user()
     
 def create_creds(site_name,username,password):
+    '''
+    method to create a credential
+    '''
     new_creds = Credentials(site_name,username,password)
     return new_creds
 
     
 def u_cred(creds):
+    '''
+    method to update a credential
+    '''
     return creds.update_cred()
 
 
 def remove_cred(cred):
+    '''
+    method to delete a credential
+    '''
     return cred.remove_cred()
 
 
 def s_creds(creds):
+    '''
+    method to save a credential
+    '''
     creds.save_creds()
     
 def search_creds(name):
+    '''
+    method to search for a credential by name
+    '''
     return Credentials.search_cred(name)
 
 
 def auth(name,password):
+    '''
+    method to check if a uer already exists in the users list
+    '''
     return Credentials.aunthenticate(name,password)
 
 
 def disp_creds():
+    '''
+    method to display a list of credentials
+    '''
     return Credentials.display_creds()
 
 
@@ -252,8 +282,10 @@ def main():
                         if search_creds(account_name):
                             account = search_creds(account_name)
                             print("\t\t\t\t\tEnter the username to change username.")
+                            print("\n")
                             print("\t\t\t\t\tIf you not wish to change the username, type existing username")
-                            username = input("\t\t\t\t\tUsername").strip()
+                            username = input("\t\t\t\t\tUsername:").strip()
+                            print("\n")
                             while True:
                                 print("\t\t\t\t\tEnter tp - to type in new password")
                                 print("\t\t\t\t\tEnter gp - to be generated new password\n")
@@ -286,6 +318,10 @@ def main():
                                 password=password.strip()        
                                 account.username = username
                                 account.password = password
+                                print("\t\t\t\t\tAccount Updated")
+                                print("\t\t\t\t\tRemaing Accounts......")
+                                print("\t\t\t\t\t"+"_"*50)
+                                print(f"\t\t\t\t\t{account.site_name}\t\t{account.username}\t\t{account.password}")
                             
                             
                         else:
