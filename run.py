@@ -74,28 +74,26 @@ def main():
         if shortcode == 'ca':
             print("\t\t\t\t\tEnter Your Details")
             print("\t\t\t\t"+"*"*50)
-            username = input("Enter your Username")
+            username = input("\t\t\t\t\tEnter your Username:\n ")
             
             while True:
-                print("Enter tp - to type in your password")
-                print("Enter gp - to be generated password")
+                print("\t\t\t\t\tEnter tp - to type in your password")
+                print("\t\t\t\t\tEnter gp - to be generated password\n")
                 
-                password_choice = input("Enter your option:").lower().strip()
-                if  password_choice == 'tp':
-                    password = input("Enter \n")
+                print("Enter tp - to type your password\n gp - to get a generated password")
+                pass_choice = input("Choice:").lower().strip()
+                
+                if pass_choice == 'tp':
+                    password = input("Enter password\n")
                     break
-                elif password_choice == 'gp':
-                    print("*"*50)
-                    print("....generating password")
-                    print("enter the length of password between 8 and 12")
-                    len =  int(input("length:"))
-                    if len >12 and len < 8:
-                        print("length must between 8 and 12")
-                    
-                    password = Credentials.generate_pasword(len)
+                elif pass_choice == 'gp':
+                    password = Credentials.generate_password(8)
                     break
                 else:
-                    print("Invalid choice.please use the short codes provided")
+                    print("Invalid Choice.Please use short codes")
+                    
+                    
+            create_user(username,password)
                 
             
             
@@ -106,11 +104,11 @@ def main():
         
         if shortcode == 'ex':
             print("\n")
-            print("*"*20)        
-            print("*"*20)
-            print("Goodbye, See you again later")
-            print("*"*20)
-            print("*"*20)
+            print("\t\t\t\t"+"*"*50)     
+            print("\t\t\t\t"+"*"*50)
+            print("\t\t\t\t\tGoodbye, See you again later")
+            print("\t\t\t\t"+"*"*50)
+            print("\t\t\t\t"+"*"*50)
             
             break
             

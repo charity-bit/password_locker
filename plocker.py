@@ -104,13 +104,13 @@ class Credentials:
     '''
     generate random password method
     '''
-    def generate_pasword(ln):
-        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789*!#$@?&/=|"
-        pwd = ""
-        for i in range(len):
-            pwd += chars[randint(0, len(chars) - 1)] #generate random int from 0 to last index of chars
-            
-        return pwd
+    def generate_password(ln):
+        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890=?!#/@~$*"
+        password = " "
+        for i in range(ln):
+            password += chars[randint(0, len(chars) - 1)]
+        return password
+
         
         
     
