@@ -1,5 +1,7 @@
 #!/usr/bin/python3.9
+from ast import If
 from plocker import User,Credentials
+import pyperclip as pyc
 
 
 def create_user(username,password):
@@ -69,42 +71,62 @@ def main():
         print("\t\t\t\t"+"*"*50)
         print("\t\t\t\t"+"*"*50)
         print("\n")
-        shortcode = input("\t\t\t\t\tEnter the shortcode:\n").lower().strip()
+        shortcode = input("\t\t\t\t\tEnter the shortcode: ").lower().strip()
+        print("\n")
         
         if shortcode == 'ca':
             print("\t\t\t\t\tEnter Your Details")
             print("\t\t\t\t"+"*"*50)
-            username = input("\t\t\t\t\tEnter your Username:\n ").strip()
+            username = input("\t\t\t\t\tEnter your Username: ").strip()
+            print("\n")
             
             while True:
                 print("\t\t\t\t\tEnter tp - to type in your password")
-                print("\t\t\t\t\tEnter gp - to be generated password\n")
+                print("\t\t\t\t\tEnter gp - to be generated password")
                 
-               
-                pass_choice = input("Choice:").lower().strip()
+                print("\n")
+                pass_choice = input("\t\t\t\t\tChoice:").lower().strip()
                 
                 if pass_choice == 'tp':
-                    password = input("Enter password\n")
+                    password = input("\t\t\t\t\tEnter password: ")
                     break
                 elif pass_choice == 'gp':
-                    password = Credentials.generate_password(8)
-                    break
+                    print("\t\t\t\t\tEnter the length of the password")
+                    print("\t\t\t\t\tPassword must be between 8 and 12")
+                    len=int(input("\t\t\t\t\tLength:"))
+                    
+                    if len > 12 or len < 8:
+                        print("\t\t\t\t\tlength must not be greater than 12 or less than 8")
+                        
+                    else:
+                        password = Credentials.generate_password(len)
+                        print(f"\t\t\t\t\tyour password is {password}")
+                        break
+                        
                 else:
-                    print("Invalid Choice.Please use short codes")
+                    print("\t\t\t\t\tInvalid Choice.Please use short codes")
                     
-                    
-            s_user(create_user(username,password))
+            password=password.strip()
+            if password == "" or username == "":
+                print("/n")
+                print("\t\t\t\t\tACCOUNT CREATION FAILED:Username and Password cannot be empty.Please try again")
+            else:
+                s_user(create_user(username,password))
                 
         elif shortcode == 'li':
             
-            print("Enter your credentials to login")
-            username = input("Username:")
-            password = input("Password")
+            print("\t\t\t\t\tEnter your credentials to login")
+            username = input("\t\t\t\t\tUsername:")
+            password = input("\t\t\t\t\tPassword:")
+            print('\n')
                 
             user = auth(username,password)
+            print("\t\t\t\t"+"*"*50)
+            print("\t\t\t\t"+"*"*50)  
+            
             
             if user == username:
-                print(f"Hello, {username}.Proceed to select a short code to navigate")
+                print(f"\t\t\t\t\tHello, {username}.Proceed to select a short code to navigate")
                 
                 while True:
                     print("\t\t\t\t"+"*"*50)
@@ -121,34 +143,52 @@ def main():
                     print("\t\t\t\t"+"*"*50)
                     print("\t\t\t\t"+"*"*50)
                     
-                    shortcode = input("Shortcode:").lower().strip()
+                    shortcode = input("\t\t\t\t\tShortcode:").lower().strip()
+                    print("\n")
                     
                     if shortcode == 'cc':
                         # create a new credential
-                        print("Enter details of the new credentials")
-                        site_name = input("Site Name:").strip()
-                        user_name = input("User Name:").strip()
+                        print("\t\t\t\t\tEnter details of the new credentials")
+                        site_name = input("\t\t\t\t\tSite Name:").strip()
+                        user_name = input("\t\t\t\t\tUser Name:").strip()
                         while True:
                             print("\t\t\t\t\tEnter tp - to type in your password")
                             print("\t\t\t\t\tEnter gp - to be generated password\n")
                 
                           
-                            pass_choice = input("Choice:").lower().strip()
+                            pass_choice = input("\t\t\t\t\tChoice:").lower().strip()
                 
                             if pass_choice == 'tp':
-                                password = input("Enter password\n")
+                                password = input("\t\t\t\t\tEnter password:")
                                 break
                             elif pass_choice == 'gp':
-                                password = Credentials.generate_password(8)
-                                break
+                                print("\t\t\t\t\tEnter the length of the password")
+                                print("\t\t\t\t\tPassword must be between 8 and 12")
+                                len=int(input("\t\t\t\t\tLength:"))
+                    
+                                if len > 12 or len < 8:
+                                    print("\t\t\t\t\tlength must not be greater than 12 or less than 8")
+                        
+                                else:
+                                    password = Credentials.generate_password(len)
+                                    print(f"\t\t\t\t\tyour password is {password}")
+                                    break
                             else:
-                                print("Invalid Choice.Please use short codes")
-                        s_creds(create_creds(site_name,user_name,pass_choice))
+                                print("\t\t\t\t\tInvalid Choice.Please use short codes")
+                        password=password.strip() 
+                        if site_name == "" or user_name == "" or password == "":
+                            print("\t\t\t\t\tFAILED TO CREATE AND SAVE CREDENTIALS:Please fill in all details")
+                           
+                        else:
+                            s_creds(create_creds(site_name,user_name,password))
+                        
                         
                             
                     elif shortcode == 'fc':
-                        print("Enter the name of the account you want to find")
-                        account_name = input("Account Name:").strip()
+                        print("\t\t\t\t\tEnter the name of the account you want to find")
+                        print("\n")
+                        account_name = input("\t\t\t\t\tAccount Name:").strip()
+                        print("\n")
                         
                         if search_creds(account_name):
                             account = search_creds(account_name)
@@ -158,65 +198,94 @@ def main():
                             
                             
                         else:
-                            print("Account not found")
+                            print("\t\t\t\t\tAccount not found")
                                 
                     
                     elif shortcode == 'dc':
                         if disp_creds():
                             for cred in disp_creds():
-                                print("\t\t\t\tAccount\t\tUsername\t\tPassword")
+                                
                                 print("\t\t\t\t\t"+"_"*50)
                                 print(f"\t\t\t\t\t{cred.site_name}\t\t{cred.username}\t\t{cred.password}")
+                                print("\n")
                                 
                         else:
-                            print("There are no saved credentials available")
+                            print("\n")
+                            print("\t\t\t\t\tThere are no saved credentials available")
+                            print("\n")
                             
                     elif shortcode == 'rm':
-                        print("Enter the name of the account you wan't to delete")
-                        account_name = input("Account Name:").strip()
+                        print("\n")
+                        print("\t\t\t\t\tEnter the name of the account you wan't to delete")
+                        account_name = input("\t\t\t\t\tAccount Name:").strip()
+                        print("\n")
                         
                         if search_creds(account_name):
                             account = search_creds(account_name)
                             remove_cred(account)
                             if disp_creds():
                                 for cred in disp_creds():
-                                    print("Remaing Accounts")
-                                    print("\t\t\t\tAccount\t\tUsername\t\tPassword")
+                                    print("\t\t\t\t\tRemaing Accounts......")
                                     print("\t\t\t\t\t"+"_"*50)
                                     print(f"\t\t\t{cred.site_name}\t\t{cred.username}\t\t{cred.password}")
                                 
                             else:
-                                print("No accounts remaining")
+                                print("\t\t\t\t\tNo accounts remaining")
                                
                         else:
-                            print("Account not found")
+                            print("\t\t\t\t\tAccount not found")
                             
-                    elif shortcode == "up":
-                        print("Enter the account you want to update")
-                        account_name = input("Account Name:").strip()
+                            
+                    elif shortcode == 'cp':
+                        print("\t\t\t\t\tEnter the account you want to update")
+                        account_name = input("\t\t\t\t\tAccount Name:").strip()
                         if search_creds(account_name):
                             account = search_creds(account_name)
-                            print("Enter the username to change username.")
-                            print("If you not wish to change the username, type existing username")
-                            username = input("Username").strip()
+                            pyc.copy(account.password)
+                            print("\t\t\t\t\tPassword copied to clipboard")
+                        else:
+                            print("\t\t\t\t\taccount not found")
+                            
+                    elif shortcode == "up":
+                        print("\t\t\t\t\tEnter the account you want to update")
+                        account_name = input("\t\t\t\t\tAccount Name:").strip()
+                        if search_creds(account_name):
+                            account = search_creds(account_name)
+                            print("\t\t\t\t\tEnter the username to change username.")
+                            print("\t\t\t\t\tIf you not wish to change the username, type existing username")
+                            username = input("\t\t\t\t\tUsername").strip()
                             while True:
                                 print("\t\t\t\t\tEnter tp - to type in new password")
                                 print("\t\t\t\t\tEnter gp - to be generated new password\n")
                 
                                 
-                                pass_choice = input("Choice:").lower().strip()
+                                pass_choice = input("\t\t\t\t\tChoice:").lower().strip()
                 
                                 if pass_choice == 'tp':
-                                    password = input("Enter password\n")
+                                    password = input("\t\t\t\t\tEnter password:")
                                     break
                                 elif pass_choice == 'gp':
-                                    password = Credentials.generate_password(8)
-                                    break
+                                    print("\t\t\t\t\tEnter the length of the password")
+                                    print("\t\t\t\t\tPassword must be between 8 and 12")
+                                    len=int(input("\t\t\t\t\tLength:"))
+                    
+                                    if len > 12 or len < 8:
+                                        print("\t\t\t\t\tlength must not be greater than 12 or less than 8")
+                        
+                                    else:
+                                        password = Credentials.generate_password(len)
+                                        print(f"\t\t\t\t\tyour password is {password}")
+                                        break
                                 else:
-                                     print("Invalid Choice.Please use short codes")
+                                     print("\t\t\t\t\tInvalid Choice.Please use short codes")
                                      
-                            account.username = username
-                            account.password = password
+                            if password == "" or username == "":
+                                print("\t\t\t\t\tUPDATE FAILED.Please try filling in the values in order to update credential")
+                            
+                            else:
+                                password=password.strip()        
+                                account.username = username
+                                account.password = password
                             
                             
                         else:
@@ -226,7 +295,7 @@ def main():
                         print("\n")
                         print("\t\t\t\t"+"*"*50)     
                         print("\t\t\t\t"+"*"*50)
-                        print("\t\t\t\t\tGoodbye, See you again later")
+                        print(f"\t\t\t\t\tGoodbye,{username} See you again later")
                         print("\t\t\t\t"+"*"*50)
                         print("\t\t\t\t"+"*"*50)
                         break
@@ -239,18 +308,10 @@ def main():
                         
                         
             else:
-                print("Wrong credentials.Please try again")                
+                print("\t\t\t\t\tWrong credentials.Please try again")                
                         
                     
-                        
-                        
                     
-                
-                    
-            
-            
-                
-        
         
         
         elif shortcode == 'ex':
