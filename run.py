@@ -152,7 +152,7 @@ def main():
                         
                         if search_creds(account_name):
                             account = search_creds(account_name)
-                            print("\t\t\t\t\tAccount\t\tUsername\t\tPassword")
+                            print("\t\t\t\tAccount\t\tUsername\t\tPassword")
                             print("\t\t\t\t\t"+"_"*50)
                             print(f"\t\t\t\t\t{account.site_name}\t\t{account.username}\t\t{account.password}")
                             
@@ -164,13 +164,35 @@ def main():
                     if shortcode == 'dc':
                         if disp_creds():
                             for cred in disp_creds():
-                                print("\t\t\t\t\tAccount\t\tUsername\t\tPassword")
+                                print("\t\t\t\tAccount\t\tUsername\t\tPassword")
                                 print("\t\t\t\t\t"+"_"*50)
                                 print(f"\t\t\t\t\t{cred.site_name}\t\t{cred.username}\t\t{cred.password}")
                                 
                         else:
                             print("There are no saved credentials available")
-                              
+                            
+                    if shortcode == 'rm':
+                        print("Enter the name of the account you wan't to delete")
+                        account_name = input("Account Name:").strip()
+                        
+                        if search_creds(account_name):
+                            account = search_creds(account_name)
+                            remove_cred(account)
+                            if disp_creds():
+                                for cred in disp_creds():
+                                    print("Remaing Accounts")
+                                    print("\t\t\t\tAccount\t\tUsername\t\tPassword")
+                                    print("\t\t\t\t\t"+"_"*50)
+                                    print(f"\t\t\t\t\t{cred.site_name}\t\t{cred.username}\t\t{cred.password}")
+                                
+                            else:
+                                print("No accounts remaining")
+                               
+                        else:
+                            print("Account not found")
+                        
+            else:
+                print("Wrong credentials.Please try again")                
                         
                     
                         
