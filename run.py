@@ -146,7 +146,7 @@ def main():
                         s_creds(create_creds(site_name,user_name,pass_choice))
                         
                             
-                    if shortcode == 'fc':
+                    elif shortcode == 'fc':
                         print("Enter the name of the account you want to find")
                         account_name = input("Account Name:").strip()
                         
@@ -161,7 +161,7 @@ def main():
                             print("Account not found")
                                 
                     
-                    if shortcode == 'dc':
+                    elif shortcode == 'dc':
                         if disp_creds():
                             for cred in disp_creds():
                                 print("\t\t\t\tAccount\t\tUsername\t\tPassword")
@@ -171,7 +171,7 @@ def main():
                         else:
                             print("There are no saved credentials available")
                             
-                    if shortcode == 'rm':
+                    elif shortcode == 'rm':
                         print("Enter the name of the account you wan't to delete")
                         account_name = input("Account Name:").strip()
                         
@@ -183,13 +183,29 @@ def main():
                                     print("Remaing Accounts")
                                     print("\t\t\t\tAccount\t\tUsername\t\tPassword")
                                     print("\t\t\t\t\t"+"_"*50)
-                                    print(f"\t\t\t\t\t{cred.site_name}\t\t{cred.username}\t\t{cred.password}")
+                                    print(f"\t\t\t{cred.site_name}\t\t{cred.username}\t\t{cred.password}")
                                 
                             else:
                                 print("No accounts remaining")
                                
                         else:
                             print("Account not found")
+                            
+                    elif shortcode == 'ex':
+                        print("\n")
+                        print("\t\t\t\t"+"*"*50)     
+                        print("\t\t\t\t"+"*"*50)
+                        print("\t\t\t\t\tGoodbye, See you again later")
+                        print("\t\t\t\t"+"*"*50)
+                        print("\t\t\t\t"+"*"*50)
+                        break
+                        
+                    else:
+                        print("\t\t\t\t"+"*"*50)
+                        print("\t\t\t\t\tI did not get that, Please use the provided short codes")
+                        print("\t\t\t\t"+"*"*50)
+            
+                        
                         
             else:
                 print("Wrong credentials.Please try again")                
@@ -206,7 +222,7 @@ def main():
         
         
         
-        if shortcode == 'ex':
+        elif shortcode == 'ex':
             print("\n")
             print("\t\t\t\t"+"*"*50)     
             print("\t\t\t\t"+"*"*50)
@@ -215,6 +231,10 @@ def main():
             print("\t\t\t\t"+"*"*50)
             
             break
+        else:
+            print("\t\t\t\t"+"*"*50)
+            print("\t\t\t\t\tI did not get that, Please use the provided short codes")
+            print("\t\t\t\t"+"*"*50)
             
             
         
