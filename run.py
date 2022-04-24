@@ -95,7 +95,65 @@ def main():
                     
             create_user(username,password)
                 
+        elif shortcode == 'li':
             
+            print("Enter your credentials to login")
+            username = input("Username:")
+            password = input("Password")
+                
+            user = auth(username,password)
+            
+            if user == username:
+                print(f"Hello, {username}.Proceed to select a short code to navigate")
+                
+                while True:
+                    print("\t\t\t\t"+"*"*50)
+                    print("\t\t\t\t"+"*"*50)
+                    print('\n')
+                    print("\t\t\t\t\tcc  - create an a new credential")
+                    print("\t\t\t\t\tdc - display credentials")
+                    print("\t\t\t\t\tfc - find credential")
+                    print("\t\t\t\t\trm - remove credential")
+                    print("\t\t\t\t\tup - update credential")
+                    print("\t\t\t\t\tcp - copy credential")
+                    print("\t\t\t\t\tex - exit app")
+                    print('\n')
+                    print("\t\t\t\t"+"*"*50)
+                    print("\t\t\t\t"+"*"*50)
+                    
+                    shortcode = input("Shortcode:").lower().strip()
+                    
+                    if shortcode == 'cc':
+                        # create a new credential
+                        print("Enter details of the new credentials")
+                        site_name = input("Site Name:").strip()
+                        user_name = input("User Name:").strip()
+                        while True:
+                            print("\t\t\t\t\tEnter tp - to type in your password")
+                            print("\t\t\t\t\tEnter gp - to be generated password\n")
+                
+                            print("Enter tp - to type your password\n gp - to get a generated password")
+                            pass_choice = input("Choice:").lower().strip()
+                
+                            if pass_choice == 'tp':
+                                password = input("Enter password\n")
+                                break
+                            elif pass_choice == 'gp':
+                                password = Credentials.generate_password(8)
+                                break
+                            else:
+                                print("Invalid Choice.Please use short codes")
+                        s_creds(create_creds(site_name,user_name,pass_choice))
+                                
+                    
+                                
+                        
+                    
+                        
+                        
+                    
+                
+                    
             
             
                 
