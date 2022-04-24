@@ -74,7 +74,7 @@ def main():
         if shortcode == 'ca':
             print("\t\t\t\t\tEnter Your Details")
             print("\t\t\t\t"+"*"*50)
-            username = input("\t\t\t\t\tEnter your Username:\n ")
+            username = input("\t\t\t\t\tEnter your Username:\n ").strip()
             
             while True:
                 print("\t\t\t\t\tEnter tp - to type in your password")
@@ -93,7 +93,7 @@ def main():
                     print("Invalid Choice.Please use short codes")
                     
                     
-            create_user(username,password)
+            s_user(create_user(username,password))
                 
         elif shortcode == 'li':
             
@@ -144,6 +144,17 @@ def main():
                             else:
                                 print("Invalid Choice.Please use short codes")
                         s_creds(create_creds(site_name,user_name,pass_choice))
+                        
+                    if shortcode == 'dc':
+                        if disp_creds():
+                            for cred in disp_creds():
+                                print("\t\t\t\t\tAccount\t\tUsername\t\tPassword")
+                                print("\t\t\t\t\t"+"_"*50)
+                                print(f"\t\t\t\t\t{cred.site_name}\t\t{cred.username}\t\t{cred.password}")
+                                
+                        else:
+                            print("There are no saved credentials available")
+                        
                                 
                     
                                 
