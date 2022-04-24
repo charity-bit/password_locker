@@ -58,6 +58,15 @@ class Credentials:
         Credentials.creds_list.append(self)
         
     '''
+    method to remove credential
+    
+    '''
+    
+    def remove_cred(self):
+        Credentials.creds_list.remove(self) 
+    
+        
+    '''
     update credential
     '''
     def update_cred(self):
@@ -86,6 +95,7 @@ class Credentials:
     '''
     search for credential by name
     '''
+    @classmethod
     def search_cred(cls,site_name):
         for cred in cls.creds_list:
             if cred.site_name == site_name:
