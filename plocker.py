@@ -60,9 +60,7 @@ class Credentials:
     '''
     update credential
     '''
-    def update_cred(self,username,password):
-        self.username = username
-        self.password = password
+    def update_cred(self):
         return self
         
       

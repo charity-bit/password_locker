@@ -40,14 +40,7 @@ class TestUser(unittest.TestCase):
         self.new_user.remove_user()
         self.assertEqual(len(User.users),1)
     
-    def test_display_user(self):
-        self.new_user.save_user()
-        self.display_user()
-        
-        
-        
-    
-        
+  
         
         
         
