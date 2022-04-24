@@ -80,7 +80,7 @@ def main():
                 print("\t\t\t\t\tEnter tp - to type in your password")
                 print("\t\t\t\t\tEnter gp - to be generated password\n")
                 
-                print("Enter tp - to type your password\n gp - to get a generated password")
+               
                 pass_choice = input("Choice:").lower().strip()
                 
                 if pass_choice == 'tp':
@@ -132,7 +132,7 @@ def main():
                             print("\t\t\t\t\tEnter tp - to type in your password")
                             print("\t\t\t\t\tEnter gp - to be generated password\n")
                 
-                            print("Enter tp - to type your password\n gp - to get a generated password")
+                          
                             pass_choice = input("Choice:").lower().strip()
                 
                             if pass_choice == 'tp':
@@ -188,6 +188,37 @@ def main():
                             else:
                                 print("No accounts remaining")
                                
+                        else:
+                            print("Account not found")
+                            
+                    elif shortcode == "up":
+                        print("Enter the account you want to update")
+                        account_name = input("Account Name:").strip()
+                        if search_creds(account_name):
+                            account = search_creds(account_name)
+                            print("Enter the username to change username.")
+                            print("If you not wish to change the username, type existing username")
+                            username = input("Username").strip()
+                            while True:
+                                print("\t\t\t\t\tEnter tp - to type in new password")
+                                print("\t\t\t\t\tEnter gp - to be generated new password\n")
+                
+                                
+                                pass_choice = input("Choice:").lower().strip()
+                
+                                if pass_choice == 'tp':
+                                    password = input("Enter password\n")
+                                    break
+                                elif pass_choice == 'gp':
+                                    password = Credentials.generate_password(8)
+                                    break
+                                else:
+                                     print("Invalid Choice.Please use short codes")
+                                     
+                            account.username = username
+                            account.password = password
+                            
+                            
                         else:
                             print("Account not found")
                             
