@@ -56,7 +56,7 @@ This is an application that helps users manage their password by saving them in 
 
 - cd password_locker
 
-- open vs code with code .
+- open vs code with <code>code .</code>
 
 ### Running the Application
 
