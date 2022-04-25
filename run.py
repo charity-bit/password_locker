@@ -141,7 +141,12 @@ def main():
                 print("/n")
                 print("\t\t\t\t\tACCOUNT CREATION FAILED:Username and Password cannot be empty.Please try again")
             else:
+                
                 s_user(create_user(username,password))
+                print("\n")
+                print("\t\t\t\t\tAccount created successfully")
+                print(f"\t\t\t\t\tUse username:{username} and password:{password} to login ")
+                print("\n")
                 
         elif shortcode == 'li':
             
