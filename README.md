@@ -89,3 +89,9 @@ To run the application, in your terminal:
    copyright © Charity 2022 - <a href="">MIT</a>
 
 ## Authors Info
+
+-LinkedIn - [Charity Nyanchera](https://www.linkedin.com/in/charity-nyanchera-2679281a2/)
+
+-twitter - [Twitter](https://twitter.com/CcNyanchera)
+
+-[Go Back to the top](#password_locker)
