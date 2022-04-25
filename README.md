@@ -12,35 +12,35 @@
 
 ## Behavior Driven Enviroment
 
-- # Scenario Create account
+- #### Scenario Create account
    Given that a user has provided both a username and password
    When a user requests to create an account
    Then the system should create and save the account
-- # Scenario Login
+- #### Scenario Login
   Given that the user has a valid username and password
   When the user requests to login 
   Then the system should provide access
 
-- # Create credential
+- #### Create credential
   Given that a user has provided a valid site name, username and password
   When a user requests to create a credential
   Then the system should create and save the credentials
 
-- # Scenerario Search
+- #### Scenerario Search
    Given that a user has provided a name of the account to search
    When a user requests to search for a credential
    Then the system should search and return the details of that account or none if there is no such account
 
-- # Scenario Display Credential
+- #### Scenario Display Credential
    Given that a user has credentials saved
    When a user requests to see the details of saved credentials
    Then the system should return all saved credentials
-- # Scenario Delete Credential
+- #### Scenario Delete Credential
    Given that a user has credentials saved
    When a user requests for a credential to be deleted
    Then the system should delete the account
 
-- # Scenario Update account
+- #### Scenario Update account
    Given that a user has credentials saved
    When a user requests to update an account
    Then the system should update the existing account details with the new ones.
