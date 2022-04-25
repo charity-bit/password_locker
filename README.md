@@ -62,11 +62,11 @@ This is an application that helps users manage their password by saving them in 
 
 To run the application, in your terminal:
 
-- $ #!/usr/bin/env python3.9 or your python version
+- <code>$ #!/usr/bin/env python3.9 or your python version</code>
 
-- $ chmod +x run.py
+- <code>$ chmod +x run.py</code>
 
-- $ ./run.py
+- <code>$ ./run.py</code>
 
 ## Technology Use
 
