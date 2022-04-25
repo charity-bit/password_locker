@@ -21,7 +21,7 @@
   - When the user requests to login 
   - Then the system should provide access
 
-- #### Create credential
+- #### Scenario Create credential
   - Given that a user has provided a valid site name, username and password
   - When a user requests to create a credential
   - Then the system should create and save the credentials
@@ -86,7 +86,7 @@ To run the application, in your terminal:
 
 ## Licence
 
-   copyright © Charity 2022 - <a href="">MIT</a>
+   copyright © Charity 2022 - <a href="https://github.com/charity-bit/password_locker/blob/main/LICENSE">MIT</a>
 
 ## Authors Info
 
